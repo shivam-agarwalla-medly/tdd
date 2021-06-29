@@ -1,12 +1,18 @@
 package co.interleap.courses.tdd;
 
+import java.util.List;
+
 public class InvoiceGenerator {
 
-    public  static  final  int FARE_PER_KM=10;
-    public static final int FARE_PER_MIN=1;
-
-    public double generateInvoice(double km, double min)
+    public Invoice create(List<Ride> rides)
     {
-        return (km*FARE_PER_KM + min*FARE_PER_MIN);
+        double totalFare=0;
+        for (Ride ride:rides)
+        {
+            totalFare+= ride.getTotalFare();
+        }
+        return new Invoice(totalFare,totalFare/rides.size(),rides.size());
     }
+
+
 }

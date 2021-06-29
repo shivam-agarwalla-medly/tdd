@@ -1,47 +1,33 @@
 package co.interleap.courses.tdd;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class InvoiceGeneratorTest {
     @Test
-    public void zeroKmAndMin()
+    public void multipleRides()
     {
         InvoiceGenerator ig=new InvoiceGenerator();
 
-        double expected=0;
-        double result=ig.generateInvoice(0,0);
+        List<Ride> rides=new ArrayList<Ride>();
+        rides.add(new Ride(3,20));
+        rides.add(new Ride(20,5));
+        rides.add(new Ride(2,10));
 
-        assertEquals(expected,result,0.01);
+        Invoice invoice=ig.create(rides);
+
+        double resultTotalFare=invoice.getTotalFare();
+        double resultAverageFare=invoice.getAverageFare();
+        double resultNumberOfRides=invoice.getNumberOfRides();
+
+
+        assertEquals(285,resultTotalFare,0.01);
+        assertEquals(95,resultAverageFare,0.01);
+        assertEquals(3,resultNumberOfRides,0.01);
     }
-    @Test
-    public void zeroKmButNonZeroMin()
-    {
-        InvoiceGenerator ig=new InvoiceGenerator();
 
-        double expected=5;
-        double result=ig.generateInvoice(0,5);
-
-        assertEquals(expected,result,0.01);
-    }
-    @Test
-    public void nonZeroKmButZeroMin()
-    {
-        InvoiceGenerator ig=new InvoiceGenerator();
-
-        double expected=20;
-        double result=ig.generateInvoice(2,0);
-
-        assertEquals(expected,result,0.01);
-    }
-    @Test
-    public void kmAndMin()
-    {
-        InvoiceGenerator ig=new InvoiceGenerator();
-
-        double expected=70;
-        double result=ig.generateInvoice(5,20);
-
-        assertEquals(expected,result,0.01);
-    }
 }
