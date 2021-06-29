@@ -10,18 +10,23 @@ public class VowelCounter {
 
         for(int i=0;i<string.length();i++)
         {
-            switch (string.charAt(i))
-            {
-                case 'a':{counter++;break;}
-                case 'e':{counter++;break;}
-                case 'i':{counter++;break;}
-                case 'o':{counter++;break;}
-                case 'u':{counter++;break;}
-
-                default:break;
-            }
+            if(isVowel(string.charAt(i)))
+                counter++;
         }
 
         return counter;
+    }
+    private  boolean isVowel(char c)
+    {
+        switch (c)
+        {
+            case 'a':{return true;}
+            case 'e':{return true;}
+            case 'i':{return true;}
+            case 'o':{return true;}
+            case 'u':{return true;}
+
+            default:return false;
+        }
     }
 }
