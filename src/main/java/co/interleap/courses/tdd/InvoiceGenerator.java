@@ -11,7 +11,7 @@ public class InvoiceGenerator {
         {
             totalFare+= ride.getTotalFare();
         }
-        return new Invoice(totalFare,totalFare/rides.size(),rides.size());
+        return new Invoice(totalFare,totalFare/rides.size(), rides.size());
     }
 
 

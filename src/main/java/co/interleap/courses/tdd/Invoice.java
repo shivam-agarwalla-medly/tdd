@@ -7,7 +7,6 @@ public class Invoice {
     private double TotalFare;
     private double AverageFare;
     private double NumberOfRides;
-    public List<Ride> Rides;
 
     Invoice(double TotalFare, double AverageFare, double NumberOfRides)
     {
