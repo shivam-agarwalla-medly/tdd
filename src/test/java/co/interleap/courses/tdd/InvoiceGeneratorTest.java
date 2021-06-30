@@ -11,14 +11,12 @@ public class InvoiceGeneratorTest {
     @Test
     public void multipleRides()
     {
-        InvoiceGenerator ig=new InvoiceGenerator();
-
         List<Ride> rides=new ArrayList<Ride>();
         rides.add(new Ride(3,20));
         rides.add(new Ride(20,5));
         rides.add(new Ride(2,10));
 
-        Invoice invoice=ig.create(rides);
+        Invoice invoice=new Invoice(rides,0,0,0);
 
         double resultTotalFare=invoice.getTotalFare();
         double resultAverageFare=invoice.getAverageFare();
